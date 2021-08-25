@@ -1,0 +1,28 @@
+<template>
+  <section>
+    <base-card>
+      <h2>Register as a Coach</h2>
+      <coach-form @on-save="saveData"></coach-form>
+    </base-card>
+  </section>
+</template>
+
+<script>
+
+import CoachForm from "../../components/coaches/CoachForm";
+
+export default {
+  name: "CoachRegistration",
+  components: {CoachForm},
+  methods: {
+    saveData(data) {
+      this.$store.dispatch('coaches/registerCoach', data);
+      this.$router.replace('/coaches');
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
